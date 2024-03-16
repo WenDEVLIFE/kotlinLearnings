@@ -1,58 +1,72 @@
 package org.example
 
+import java.util.*
+
 fun Incrementing(start: Int?, end: Int?) {
-    // if the start and end are not null
-    if (start != null && end != null) {
 
-        // our arrays
-        val numbers = mutableListOf<Int>()
+        // if the start and end are not null
+        if (start != null && end != null) {
 
-        // range from start to end
-        // we are using range here like the dots in python
-        val range = start..end
+            // our arrays
+            val numbers = mutableListOf<Int>()
 
-        // then check the range
-        for (i in range){
+            // range from start to end
+            // we are using range here like the dots in python
+            val range = start..end
 
-            // then enter the number base on start and end
-            println("Enter your number$i")
+            // then check the range
+            for (i in range) {
 
-            // store the value in a variable
-            val number = readlnOrNull()?.toInt()
+                // then enter the number base on start and end
+                println("Enter your number$i")
 
-            // if the number is not null
-            if (number != null) {
-                numbers.add(number)
+                // store the value in a variable
+                val number = readlnOrNull()?.toInt()
+
+                // if the number is not null
+                if (number != null) {
+                    numbers.add(number)
+                }
+
+
             }
 
+            // print the numbers
+            for (i in numbers) {
+                println("The number is $i")
 
-        }
 
-        // print the numbers
-        for (i in numbers){
-            println("The number is $i")
+            }
         }
-    }
 
 }
 
+fun Run(){
+    do {
+
+        // ask the user to print the start range
+        println("Enter your start range")
+
+        // store the value in a variable
+        val start = readlnOrNull()?.toInt()
+
+        // ask the user the end range
+        println("Enter your end range")
+
+        // store the value in a variable
+        val end = readlnOrNull()?.toInt()
+
+        // call the method
+        Incrementing(start, end )
+
+        // ask the user to continue
+        println("Do you want to continue")
+        val response = readlnOrNull()
+
+    } while (response?.lowercase(Locale.getDefault()) == "yes")
+    println("You chose to stop.")
+}
 fun main(){
-
-    // ask the user to print the start range
-    println("Enter your start range")
-
-    // store the value in a variable
-    val start = readlnOrNull()?.toInt()
-
-    // ask the user the end range
-    println("Enter your end range")
-
-    // store the value in a variable
-    val end = readlnOrNull()?.toInt()
-
-    // call the method
-    Incrementing(start, end )
-
-
-
+    Run();
 }
+
